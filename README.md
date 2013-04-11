@@ -21,7 +21,7 @@ Next tasks for far far future<br/>
 
 ***
 Rev hist: 
-1.1: Some new and minimal info added to the comments
-1.2: It writes the max and min ping values to the file now
-     It creates a new output.txt file each time program runs
+1.1: Some new and minimal info added to the comments<br/>
+1.2: It writes the max and min ping values to the file now<br/>
+     It creates a new output.txt file each time program runs<br/>
 ***
