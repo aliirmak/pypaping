@@ -9,14 +9,13 @@ All of the data is written later to a .csv file wrt to the time when ping test c
 The software uses paping.exe to accomplish the task. Currently, paping can only ping TCP ports.
 WireShark reports the typical TCP packet size is 66 bytes or 528 bits.
 
-paping can be downloaded from here:
+paping can be downloaded from here:<br/>
 https://code.google.com/p/paping/
-Personally suggesting to get x86 version
+Personally suggesting to get x86 version.
 
 Next tasks for far far future
 1) give error for large time delays
-2) email to the user if any exception is happening during the run-time such as
-   long time delays or repeated time outs
+2) email to the user if any exception is happening during the run-time such as long time delays or repeated time outs.
 
 
 ***
