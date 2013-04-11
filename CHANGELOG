@@ -1,0 +1,19 @@
+pypaping Changelog
+==================
+
+Version 1.2 
+------------
+
+Released on Apr 4 2013
+
+- It writes the max and min ping values to the file now
+- It creates a new output.txt file each time program runs
+
+
+
+Version 1.1
+------------
+
+Released on Apr 2 2013
+
+- Some new and minimal info added to the comments. (not in the rep)
