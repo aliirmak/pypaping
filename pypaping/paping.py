@@ -26,10 +26,11 @@ Rev hist:
 1.1: Some new and minimal info added to the comments
 1.2: It writes the max and min ping values to the file now
      It creates a new output.txt file each time program runs
+1.2.1: GitHUb rep on https://github.com/aliirmak/pypaping/
 """
 
 ## written by Ali Irmak Ozdagli, 2013
-## Version: 1.2
+## Version: 1.2.1
 
 import os
 import re
