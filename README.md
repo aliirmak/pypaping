@@ -13,15 +13,3 @@ WireShark reports the typical TCP packet size is 66 bytes or 528 bits. <br/>
 paping can be downloaded from here:<br/>
 https://code.google.com/p/paping/<br/>
 Personally suggesting to get x86 version.<br/>
-
-Next tasks for far far future<br/>
-1) give error for large time delays<br/>
-2) email to the user if any exception is happening during the run-time such as long time delays or repeated time outs.<br/>
-
-
-***
-Rev hist: 
-1.1: Some new and minimal info added to the comments. (not in the rep) <br/>
-1.2: It writes the max and min ping values to the file now<br/>
-.......It creates a new output.txt file each time program runs<br/>
-***
