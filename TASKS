@@ -1,4 +1,2 @@
 Next tasks for far far future
 1) give error for large time delays
-2) email to the user if any exception is happening during the run-time such as
-   long time delays or repeated time outs
