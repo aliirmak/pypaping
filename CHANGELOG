@@ -2,10 +2,20 @@ pypaping Changelog
 ==================
 
 
+Version 1.3.1
+------------
+
+Released on Apr 11 2013
+
+- Feature: E-mailing is now an option instead of something you should do.
+- Cleaning: Rev history section is taken from the code.
+- Cleaning: Next tasks part is taken out
+
+
 Version 1.3.0 
 ------------
 
-Released on Apr 4 2013
+Released on Apr 11 2013
 
 - PyPaping emails when there is too much of time out error
 
@@ -14,7 +24,7 @@ Released on Apr 4 2013
 Version 1.2.1 
 ------------
 
-Released on Apr 4 2013
+Released on Apr 10 2013
 
 - GitHUb support on https://github.com/aliirmak/pypaping/
 

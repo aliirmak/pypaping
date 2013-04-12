@@ -16,22 +16,10 @@ WireShark reports the typical TCP packet size is 66 bytes or 528 bits.
 paping can be downloaded from here:
 https://code.google.com/p/paping/
 Personally suggesting to get x86 version
-
-Next tasks for far far future
-1) give error for large time delays
-"""
-
-"""
-Rev hist: 
-1.1: Some new and minimal info added to the comments
-1.2: It writes the max and min ping values to the file now
-     It creates a new output.txt file each time program runs
-1.2.1: GitHUb rep on https://github.com/aliirmak/pypaping/
-1.3.0: PyPaping emails when there is too much of time out error
 """
 
 ## written by Ali Irmak Ozdagli, 2013
-## Version: 1.3.0
+## Version: 1.3.1
 
 import os       # for commands through dos/cmd
 import re       # for regex functions to search for specific strings
@@ -117,6 +105,7 @@ msg = 'Subject: %s\n\n%s' % (msg_subject, msg_body)
 username = 'username'  
 password = 'password'  
 sptm_server = 'smtp.gmail.com:587'
+email_option = "True"  #if you want to send the email make it "True" otherwise "False"
 mail_arg = [fromaddr, toaddrs, msg, username, password, sptm_server]
 
 while True:
@@ -146,9 +135,10 @@ while True:
         print(error_to)
         write_to_file(date_file, error_to)
         counter_to += 1
-        if counter_to >= limit_to :
-            send_email_alert(*mail_arg)
-            counter_to = 0
+        if email_option == "True"  # check if user want to send email
+            if counter_to >= limit_to :  # if the time out counter is larger or equal than time out limit
+                send_email_alert(*mail_arg)  # send the alert email
+                counter_to = 0
     else:
         print('Average latency is ' + str(avr_ping) +' ms')
         write_to_file(date_file, [min_ping, max_ping, avr_ping] )
