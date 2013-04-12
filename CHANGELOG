@@ -2,12 +2,20 @@ pypaping Changelog
 ==================
 
 
+Version 1.3.2
+------------
+
+Released on Apr 11 2013
+
+- Feature: Writing to a file is an option now instead of being obligatory.
+
+
 Version 1.3.1
 ------------
 
 Released on Apr 11 2013
 
-- Feature: E-mailing is now an option instead of something you should do.
+- Feature: E-mailing is now an option now instead of being obligatory.
 - Cleaning: Rev history section is taken from the code.
 - Cleaning: Next tasks part is taken out
 

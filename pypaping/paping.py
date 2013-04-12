@@ -1,11 +1,10 @@
 #!/usr/bin/python3.3
 
 """ 
-This is a very poorly written python code
-that makes the job done.
-It essentially pings the host and checks the RTT 
-and if there is time out error.
-All of the data is written later to a .csv file wrt 
+This program essentially pings the host and checks the RTT 
+and if there is time out error, it warns user via various ways
+such as text output, e-mailing, showing on the console.
+All of the data can be written during run-time to a .csv file wrt 
 to the time when ping test conducted.
 If a certain amount of time out errors are achieved then
 program emails to the user.
@@ -19,7 +18,7 @@ Personally suggesting to get x86 version
 """
 
 ## written by Ali Irmak Ozdagli, 2013
-## Version: 1.3.1
+## Version: 1.3.2
 
 import os       # for commands through dos/cmd
 import re       # for regex functions to search for specific strings
@@ -81,9 +80,7 @@ def_time = 'hours' # hours, day, minutes?
 time_length = {def_time:how_long}
 then = now + datetime.timedelta(**time_length)
 date_file = datetime.datetime.now().strftime('%Y%m%d%H%M%S') # will be used to open the text file
-
-# how frequently do you want to run the test?
-timer_tick = 60
+timer_tick = 60 # how frequently do you want to run the test?
 
 # default paping interface parameters
 my_command = "paping"
@@ -93,6 +90,9 @@ my_count = "-c 4"
 my_tout = "-t 1000"
 nocolor = "--nocolor"
 paping_command = my_command + ' ' + myUrl + ' ' + myport + ' ' + my_count + ' ' + my_tout + ' ' + nocolor
+
+# User preference if the file is going to be written
+write_file_option = "True"  #if you want to write the results to file, make it "True" otherwise "False"
 
 # parameters regarding email service
 counter_to = 0 # initialization of variable that counts how many time outs are there
@@ -105,7 +105,7 @@ msg = 'Subject: %s\n\n%s' % (msg_subject, msg_body)
 username = 'username'  
 password = 'password'  
 sptm_server = 'smtp.gmail.com:587'
-email_option = "True"  #if you want to send the email make it "True" otherwise "False"
+email_option = "True"  #if you want to send the email, make it "True" otherwise "False"
 mail_arg = [fromaddr, toaddrs, msg, username, password, sptm_server]
 
 while True:
@@ -133,15 +133,17 @@ while True:
     if toe:
         error_to = 'Time out error!'
         print(error_to)
-        write_to_file(date_file, error_to)
+        if write_file_option == "True":
+            write_to_file(date_file, error_to)
         counter_to += 1
-        if email_option == "True"  # check if user want to send email
+        if email_option == "True":  # check if user want to send email
             if counter_to >= limit_to :  # if the time out counter is larger or equal than time out limit
                 send_email_alert(*mail_arg)  # send the alert email
                 counter_to = 0
     else:
         print('Average latency is ' + str(avr_ping) +' ms')
-        write_to_file(date_file, [min_ping, max_ping, avr_ping] )
+        if write_file_option == "True":
+            write_to_file(date_file, [min_ping, max_ping, avr_ping] )
         counter_to = 0
         
     
