@@ -2,6 +2,15 @@ pypaping Changelog
 ==================
 
 
+Version 1.3.3
+------------
+
+Released on Apr 27 2013
+
+- The script knows that you entered an invalid host. 
+  However, this is obtained through paping. 
+
+
 Version 1.3.2
 ------------
 
