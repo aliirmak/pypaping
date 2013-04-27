@@ -1,4 +1,4 @@
-#!/usr/bin/python3.3
+#!/usr/bin/python3.3.1
 
 """ 
 This program essentially pings the host and checks the RTT 
@@ -15,10 +15,12 @@ WireShark reports the typical TCP packet size is 66 bytes or 528 bits.
 paping can be downloaded from here:
 https://code.google.com/p/paping/
 Personally suggesting to get x86 version
+
+Specail thanks to 'Cindy' Li Xin for her feedbacks
 """
 
 ## written by Ali Irmak Ozdagli, 2013
-## Version: 1.3.2
+## Version: 1.3.3
 
 import os       # for commands through dos/cmd
 import re       # for regex functions to search for specific strings
@@ -26,6 +28,7 @@ import csv      # for writing csv file
 import datetime # for recording time
 import time     # for timer
 import smtplib  # for sending email within this application
+import sys      # for using some system command to exit program
 
 # writes the results to a csv file
 # each row contains time and min/max/avg ms
@@ -48,7 +51,7 @@ def write_to_file(date_file_name, n_t_argument):
 def check_time(until_when):
     if until_when < datetime.datetime.now():
         input('Task has been finished.\nPress any key to quit\n')
-        exit()    
+        sys.exit()    
 
 # sends email when a lot of time out errors are created
 # This part takes some time to process, so sometimes wait_time may be larger
@@ -68,7 +71,7 @@ def send_email_alert(fromaddr, toaddrs, msg, username, password, sptm_server):
 if not os.path.exists('paping.exe'):
     print('Paping does not exist!')
     input('Task has FAILED.\nPress any key to quit\n')
-    exit()
+    sys.exit()
     
 # how long do you want to run the test?
 # for different setting  change hours to days or minutes or seconds
@@ -112,6 +115,13 @@ while True:
     # opens the command window and sends the ping command
     stream = os.popen(paping_command).read()
     
+    resolve_error = re.search('Cannot resolve host', stream)
+    if resolve_error != None:
+        print('Cannot resolve host')
+        print('Check if you entered correct ip addresses!')
+        input('Task has been finished.\nPress any key to quit\n')
+        sys.exit() 
+        
     # finds the min/max/average ping result 'as string' and converts it to number  
     min_result = re.search('Minimum = (.*)ms, Maximum', stream)
     min_ping = float(min_result.group(1))
