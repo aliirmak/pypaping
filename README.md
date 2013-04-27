@@ -4,8 +4,8 @@ pypaping
 paping railing on python
 -------------------------
 
-This program essentially pings the host and checks the RTT and if there is time out error, it warns user via various ways
-such as text output, e-mailing, showing on the console.<br/> 
+This program essentially pings the host and checks the RTT and if there is time out error.<br/> 
+In the error case, it warns user via various ways such as text output showing on the console, e-mailing to the user. <br/> 
 All of the data can be written during run-time to a .csv file wrt to the time when ping test conducted. <br/>
 If a certain amount of time out errors are achieved then program emails to the user. <br/>
 The software uses paping.exe to accomplish the task. Currently, paping can only ping TCP ports. <br/>
