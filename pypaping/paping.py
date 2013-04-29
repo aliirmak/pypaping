@@ -1,4 +1,4 @@
-#!/usr/bin/python3.3.1
+#!/usr/bin/python3.3
 
 """ 
 This program essentially pings the host and checks the RTT 
